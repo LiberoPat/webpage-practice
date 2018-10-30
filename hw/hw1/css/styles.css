@@ -1,0 +1,122 @@
+
+
+
+body {
+    background-color: teal;
+    color:orange;
+}
+
+header, main, nav, footer{
+    text-align: center;
+    font-family: 'Indie Flower', cursive;
+ 
+}
+
+#home {
+    text-decoration: underline;
+    font-weight: bold;
+   
+}
+
+p {
+    font-size: 150%;
+}
+
+h1 {
+    font-family: 'Indie Flower', cursive;
+    font-size: 4em;
+    margin-bottom: 0px;
+}
+
+nav a {
+    padding: 15px;
+    padding-bottom:4px;
+    font-size: 1.8em;
+    text-decoration: none;
+    color: white;
+}
+
+nav a:hover {
+    border-bottom: 2px orange solid;
+    font-size: 2em;
+    transition:.9s;
+}
+
+table {
+    margin: 0px auto;
+}
+
+td {
+    padding-right: 10px;
+    font-size: 1.3em;
+}
+
+td strong {
+    color: orange;
+}
+
+#table-header {
+    background-color: #351a00;
+}
+
+.table-row {
+    background-color: #753900;
+}
+
+.hobby {
+    color: yellow
+
+}
+body {
+border: 15px solid red;
+}
+
+ol span {
+    font-size: 1.5em;
+}
+
+#contact{
+    width:100%;
+    float:left;
+    text-align:center;
+}
+
+ol, h3 {
+
+    list-style-position: inside;
+    
+}
+
+
+#man {
+    float: right;
+    font-size: .6em;
+    padding-right: 150px;
+}
+
+img {
+    opacity: 0.8;
+    filter: alpha(opacity=50); /* For IE8 and earlier */
+}
+
+img:hover {
+    opacity: 1.0;
+    filter: alpha(opacity=100); /* For IE8 and earlier */
+}
+
+#welcomeText{
+    float:left;
+}
+
+#welcomeText{
+    text-align:center;
+    float: none;
+    padding-left: 0px;
+}
+
+
+footer {
+    clear: left;
+    font-size: 1em;
+    color: orange;
+}
