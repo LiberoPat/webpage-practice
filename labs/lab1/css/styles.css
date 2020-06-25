@@ -87,15 +87,9 @@ ul {
     text-align:left;
 }
 
-#school {
-    width: 150px;
-    height: 100px;
-    display:center;
-
-}
 
 footer {
-    clear: left;
+    clear: middle;
     font-size: 0.7em;
     color: teal;
   
