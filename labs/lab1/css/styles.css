@@ -88,17 +88,14 @@ ul {
 }
 
 #school {
-    width: 150px;
-    height: 100px;
-    justify-content: center;
-  align-items: center;
-  display:flex;
+    width: 200px;
+    height: 150px;
+
 }
 
 footer {
     clear: left;
     font-size: 0.7em;
     color: teal;
-    justify-content: center;
-  align-items: center;
+
 }
