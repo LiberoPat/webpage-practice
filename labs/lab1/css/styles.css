@@ -90,7 +90,7 @@ ul {
 #school {
     width: 150px;
     height: 100px;
-    display:inline-block;
+    display:center;
 
 }
 
@@ -98,7 +98,6 @@ footer {
     clear: left;
     font-size: 0.7em;
     color: teal;
-    display: flex;
-    justify-content: center; /* horizontal align */
+  
 
 }
