@@ -87,7 +87,7 @@ ul {
     text-align:left;
 }
 
-.nav .current {
+nav a, .current {
     background-color: orange; 
 }
 
