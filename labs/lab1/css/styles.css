@@ -29,7 +29,7 @@ main {
     justify-content: center;
 }
 
-.nav a {
+nav a {
     padding: 15px;
     padding-bottom:4px;
     font-size: 1.8em;
@@ -87,7 +87,7 @@ ul {
     text-align:left;
 }
 
-.nav .current {
+nav current {
     background-color: orange; 
 }
 
