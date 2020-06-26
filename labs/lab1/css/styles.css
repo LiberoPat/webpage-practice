@@ -87,6 +87,9 @@ ul {
     text-align:left;
 }
 
+.nav .current {
+    background-color: orange; 
+}
 
 footer {
     clear: left;
