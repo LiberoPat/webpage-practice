@@ -113,7 +113,9 @@ img:hover {
     float: none;
     padding-left: 0px;
 }
-
+.nav .current {
+    background-color: red; 
+}
 
 footer {
     clear: left;
