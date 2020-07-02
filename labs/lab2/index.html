@@ -10,11 +10,23 @@
   <meta name="author" content="SitePoint">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+</head>
+
+<body class="text-center">
+    <h1 class = "jumbotron">US Geography Quiz</h1>
+    <h3>What is the capital of California?</h3>
+    <input type = "text" id="q1">
+    <br>
+    <br><br>
+    <h3 id= "validationFdbk" class ="bg-danger text-white"></h3>
+    <button type = "button" class="btn btn-outline-success">Submit quiz</button>
+    
   <script>
-      $(document).ready(function(){
+      //$(document).ready(function(){
           //DOM ready, executed after the page is loaded
-          
           /*  $("button").on("click", gradeQuiz;
+        
             //functions
             function isFormValid(){
                 let isValid = true;
@@ -37,17 +49,7 @@
             $("button").on("click"), function(){
                 alert($("#q1").val());
             }
-      }); 
+      //}); 
   </script>
-</head>
-
-<body class="text-center">
-    <h1 class = "jumbotron">US Geography Quiz</h1>
-    <h3>What is the capital of California?</h3>
-    <input type = "text" id="q1">
-    <br>
-    <br><br>
-    <h3 id= "validationFdbk" class ="bg-danger text-white"></h3>
-    <button type = "button" class="btn btn-outline-success">Submit quiz</button>
 </body>
 </html>
