@@ -14,7 +14,7 @@
       $(document).ready(function(){
           //DOM ready, executed after the page is loaded
             $("button").on("click", gradeQuiz());
-        
+        /*
             //functions
             function isFormValid(){
                 let isValid = true;
@@ -32,8 +32,12 @@
                     return;
                 }
             }
+            */
             
-      }); //click
+            $("button").on("click"), function(){
+                alert($("#q1").val());
+            }
+      }); 
   </script>
 </head>
 
