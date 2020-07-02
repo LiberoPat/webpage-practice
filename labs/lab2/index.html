@@ -9,8 +9,37 @@
   <meta name="description" content="The HTML5 Herald">
   <meta name="author" content="SitePoint">
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.1/underscore-min.js"></script>
+  <script>
+      $(document).ready(function(){
+          //DOM ready, executed after the page is loaded
+            $("button").on("click", gradeQuiz); //click
+        
+            //functions
+            function isFormValid(){
+                let isValid = true;
+                if($("#q1").val() == ""){
+                    isValid = false;
+                    $("#validationFdbk").html("Question 1 was not answered");
+                }
+                return isValid;
+            }
+            
+            function gradeQuiz(){
+                $("#validationFdbk").html(""); //resetsvalidation feedback
+                
+                if (!isFormValid()) {
+                    return;
+                }
+            }
+            
+            
+            $("button").on("click"), function(){
+                alert($("#q1").val());
+            }
+      }); //ready
+  </script>
 </head>
 
 <body class="text-center">
@@ -21,35 +50,5 @@
     <br><br>
     <h3 id= "validationFdbk" class ="bg-danger text-white"></h3>
     <button type = "button" class="btn btn-outline-success">Submit quiz</button>
-    
-  <script>
-      //$(document).ready(function(){
-          //DOM ready, executed after the page is loaded
-          /*  $("button").on("click", gradeQuiz;
-        
-            //functions
-            function isFormValid(){
-                let isValid = true;
-                if($("#q1").val()==""){
-                    isValid=false;
-                    $("validationFdbk").html("Question 1 was not answered");
-                }
-                return isValid;
-            }
-            
-            function gradeQuiz(){
-                $("validationFdbk").html(""); //resetsvalidation feedback
-                
-                if (!isFormValid()) {
-                    return;
-                }
-            }
-            */
-            
-            $("button").on("click"), function(){
-                alert($("#q1").val());
-            }
-      //}); 
-  </script>
 </body>
 </html>
