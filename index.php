@@ -7,6 +7,10 @@
 echo '<a href="http://ptrias-cst336.herokuapp.com/labs/lab1/">Lab1</a>';
 echo"<br>"
 echo '<a href="http://ptrias-cst336.herokuapp.com/homework/hw1/index.html">HW 1</a>';
+echo"<br>"
+echo '<a href="http://ptrias-cst336.herokuapp.com/labs/lab2/">Lab 2</a>';
+
+
 ?>
 </body>
 </html>
