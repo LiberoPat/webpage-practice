@@ -48,9 +48,10 @@ function updateCartTotal() {
         var quantityElement = cartRow.getElementsByClassName('cart-quantity-input')[0]
         var price = parseFloat(priceElement.innerText.replace('$', ''))
         var quantity = quantityElement.value
-        
+        var shipCost = e.options[e.selectedIndex].value;
         total = total + (price * quantity)
     }
+    
     var tax = (total * 0.10) + shipCost
     total = Math.round((total + tax ) * 100) / 100
     document.getElementsByClassName('cart-total-price')[0].innerText = '$' + total
