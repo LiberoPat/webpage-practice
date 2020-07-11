@@ -11,3 +11,9 @@ function ready() {
         button.addEventListener('click', removeCartItem)
     }
 }
+
+function removeCartItem(event) {
+    var buttonClicked = event.target
+    buttonClicked.parentElement.parentElement.remove()
+    updateCartTotal()
+}
