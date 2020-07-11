@@ -36,15 +36,23 @@ function updateCartTotal() {
     var cartItemContainer = document.getElementsByClassName('cart-items')[0]
     var cartRows = cartItemContainer.getElementsByClassName('cart-row')
     var total = 0
+    
+    
+    var e = document.getElementById("shipping");
+    var shipCost = e.options[e.selectedIndex].value;
+    
+    
     for (var i = 0; i < cartRows.length; i++) {
         var cartRow = cartRows[i]
         var priceElement = cartRow.getElementsByClassName('cart-price')[0]
         var quantityElement = cartRow.getElementsByClassName('cart-quantity-input')[0]
         var price = parseFloat(priceElement.innerText.replace('$', ''))
         var quantity = quantityElement.value
+        
         total = total + (price * quantity)
     }
-    total = Math.round(total * 100) / 100
+    var tax = total * 0.10
+    total = Math.round((total + tax + shipCost) * 100) / 100
     document.getElementsByClassName('cart-total-price')[0].innerText = '$' + total
 }
 
