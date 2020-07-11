@@ -39,7 +39,7 @@ function updateCartTotal() {
     
     
     var e = document.getElementById("shipping");
-    var shipCost = e.options[e.selectedIndex].value;
+
     
     
     for (var i = 0; i < cartRows.length; i++) {
@@ -48,12 +48,11 @@ function updateCartTotal() {
         var quantityElement = cartRow.getElementsByClassName('cart-quantity-input')[0]
         var price = parseFloat(priceElement.innerText.replace('$', ''))
         var quantity = quantityElement.value
-        var shipCost = e.options[e.selectedIndex].value;
         total = total + (price * quantity)
     }
-    
-    var tax = (total * 0.10) + shipCost
-    total = Math.round((total + tax ) * 100) / 100
+    var shipCost = e.options[e.selectedIndex].value;
+    var tax = (total * 0.10) 
+    total = Math.round((total + tax + shipCost ) * 100) / 100
     document.getElementsByClassName('cart-total-price')[0].innerText = '$' + total
 }
 
