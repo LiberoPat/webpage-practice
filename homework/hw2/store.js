@@ -1,10 +1,13 @@
-var removeCartItemButtons = document.getElementsByClassName('btn-danger')
-console.log(removeCartItemButtons)
+if (document.readyState == 'loading') {
+    document.addEventListener('DOMContentLoaded', ready)
+} else {
+    ready()
+}
 
-for (var i = 0; i < removeCartItemButtons; i++){
-    var button = removeCartItemButtons[i]
-    button.addEventListener('click', function(event){
-        var buttonClicked = event.target
-        buttonClicked.parentElement.parentElement.remove()
-    })
+function ready() {
+    var removeCartItemButtons = document.getElementsByClassName('btn-danger')
+    for (var i = 0; i < removeCartItemButtons.length; i++) {
+        var button = removeCartItemButtons[i]
+        button.addEventListener('click', removeCartItem)
+    }
 }
