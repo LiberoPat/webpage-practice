@@ -39,7 +39,7 @@ function updateCartTotal() {
     
     
     var e = document.getElementById("shipping");
-
+    var shipCost = e.options[e.selectedIndex].value;
     
     
     for (var i = 0; i < cartRows.length; i++) {
@@ -50,7 +50,7 @@ function updateCartTotal() {
         var quantity = quantityElement.value
         total = total + (price * quantity)
     }
-    var shipCost = e.options[e.selectedIndex].value;
+
     var tax = (total * 0.10) 
     total = Math.round((total + tax + shipCost ) * 100) / 100
     document.getElementsByClassName('cart-total-price')[0].innerText = '$' + total
