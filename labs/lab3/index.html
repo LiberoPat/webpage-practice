@@ -3,6 +3,9 @@
     <head>
         <title> Sign Up Page </title>
         <link rel="stylesheet" href="css/styles.css" />
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" 
+                rel="stylesheet" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+                crossorigin="anonymous">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     </head>
     <body>
@@ -31,6 +34,7 @@
             Desired Username:<input type="text"name="username" id="username"><br>
                              <span id = "usernameError"></span><br>
             Password: <input type="password"name="password" id="password"><br>
+                      <span id = "passwordAgain"></span><br>
             Password Again: <input type="password" name="passwordAgain" ><br>
                             <span id = "passwordAgainError"></span><br> <br />
             
@@ -74,6 +78,7 @@
                     success: function(result,status) {
                   
                      //alert(result);
+                     
                     $("#city").html(result.city);
                     $("#latitude").html(result.latitude);     
                     $("#longitude").html(result.longitude);
@@ -126,6 +131,14 @@
                 });//ajax
             }); //username
             
+            
+            $("#signupForm").on("change", function(e){
+                if(!isFormValid()){
+                    e.preventDefault();
+                }
+            });
+            
+            
             function isFormValid(){
                 isValid = true;
                 
@@ -134,32 +147,30 @@
                 }
                 
                 if ($("#username").val().length == 0){
-                    isValid = false;
                     $("#usernameError").html("Username is required");
+                    $("#usernameError").css("color", "red");
+                    isValid = false;
                 }
 
 
                 if ($("#password").val() != $("#passwordAgain").val()){
                     $("#passwordAgainError").html("Password Mismatch!");
+                    $("#passwordAgainError").css("color", "red");
                     isValid = false;
                 }
                 
 
                 if ($("#password").val().length < 5){
+                    $("#passwordError").html("Password is less than 6 characters!");
+                    $("#passwordAgain").css("color", "red");
                     isValid = false;
-                    $("#passwordAgain").html("Password is less than 6 characters!");
                 }
                 
                 return isValid;
                 
             }
             
-            $("#signupForm").on("change", function(e){
-                if(!isFormValid()){
-                    e.preventDefault();
-                }
-            });
-            
+
 
             
         </script>
