@@ -68,10 +68,10 @@
                     
                     success: function(result,status) {
                   
-                        //alert(result[0].county);
-                        for (let i=0; i < result.length; i++){
-                            $("#county").append("<option>" + result[i].county + "</option>");
-                        }
+                        alert(result[0].county);
+                      //  for (let i=0; i < result.length; i++){
+                      //      $("#county").append("<option>" + result[i].county + "</option>");
+                      //  }
                     } 
                 });//ajax
             }); //state
@@ -110,7 +110,7 @@
                 
                 if ($("#username").val().length == 0){
                     isValid = false;
-                    $("usernameError").html("Username is required");
+                    $("#usernameError").html("Username is required");
                 }
                 
                 if ($("#password").val() != $("#passwordAgain").val()){
@@ -126,7 +126,7 @@
                 if(!isFormValid()){
                     e.preventDefault();
                 }
-            })
+            });
             
 
             
