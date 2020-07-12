@@ -16,7 +16,7 @@
             Gender: <input type = "radio" name = "gender" value = "f">Female
                     <input type = "radio" name = "gender" value = "m">Male<br><br>
             
-            Zip Code: <input type = "text" name = "zip" id = "zip"><br>
+            Zip Code: <input type = "text" name = "zip" id = "zip"><span id="zipError" class="text-danger"></span><br>
             City: <span id = "city"></span> <br>
             Latitude: <span id="latitude"></span><br> 
             Longitude: <span id="longitude"></span><br><br>
@@ -76,12 +76,15 @@
                     data: { "zip":$("#zip").val() },
                     
                     success: function(result,status) {
-                  
-                     //alert(result);
-                     
-                    $("#city").html(result.city);
-                    $("#latitude").html(result.latitude);     
-                    $("#longitude").html(result.longitude);
+                         //alert(result);
+                        if (result != false){ 
+                            $("#city").html(result.city);
+                            $("#latitude").html(result.latitude);     
+                            $("#longitude").html(result.longitude);
+                        }
+                        else {
+                            $("#zipError").html("ZIP you entered is invalid");
+                        }
                     } 
                 });//ajax
             })//zip
