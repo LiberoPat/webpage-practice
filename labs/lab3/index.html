@@ -143,8 +143,6 @@
             
             function isFormValid(){
                 isValid = true;
-                $("#passwordAgainError").html("");
-                $("#passwordError").html("");
 
                 if(!usernameAvailable){
                     isValid = false;
@@ -157,7 +155,7 @@
                 }
                 
                if ($("#password").val().length < 6) {
-                    $("#passwordError").html("&nbsp;Password must have at least 6 characters!");
+                    $("#passwordError").html("Password must have at least 6 characters!");
                     isValid = false;
                 }
                 
@@ -168,10 +166,7 @@
                     isValid = false;
                 }
                 
-
-
                 return isValid;
-                
             }
             
 
