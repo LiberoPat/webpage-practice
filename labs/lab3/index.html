@@ -2,6 +2,7 @@
 <html>
     <head>
         <title> Sign Up Page </title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     </head>
     <body>
         <h1>Sign Up</h1>
@@ -31,6 +32,27 @@
         
         <input type="submit" value="Sign up!"/>
         
+        
+        
+        <script>
+            //Display city after zipcode
+            $("#zip").on("change", function(){
+                $.ajax({
+                    method: "GET",
+                    url: "https://cst336.herokuapp.com/projects/api/cityInfoAPI.php",
+                    dataType: "json",
+                    data: { "zip":$("#zip").val() },
+                    
+                    success: function(result,status) {
+                  
+                     //alert(result);
+                     $("#city").html(result.city);
+ 
+                    } 
+                });//ajax
+
+            })//zip
+        </script>
     </body>
 </html>
 
