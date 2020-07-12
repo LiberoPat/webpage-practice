@@ -2,11 +2,11 @@
 <html>
     <head>
         <title> Sign Up Page </title>
-        <script id = "signupForm" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     </head>
     <body>
         <h1>Sign Up</h1>
-        <form method = "post" action = "welcome.html">
+        <form id = "signupForm" method = "post" action = "welcome.html">
             First Name: <input type = "text" name = "fName"><br>
             Last Name: <input type = "text" name = "lName"><br>
             Gender: <input type = "radio" name = "gender" value = "f">Female
@@ -25,7 +25,7 @@
                 <option value "ca">California</option>
             </select> <br />
             
-            Select a County: <select id="county"></select><br><br>
+            Select a County: <select id="county"></select><br>
             
             Desired Username:<input type="text"name="username" id="username"><br>
                              <span id = "usernameError"></span><br>
@@ -58,24 +58,27 @@
                 });//ajax
             })//zip
             
-            $("#state").on("change", function(){
-            
+            $("#state").on("change", function() {
+                
+                //alert($("#state").val());
+                
                 $.ajax({
                     method: "GET",
-                    url: "https://cst336.herokuapp.com/projects/api/countyInfoAPI.php",
-                    dataType: "json",
-                    data: { "state":$("#state").val() },
+                       url: "https://cst336.herokuapp.com/projects/api/countyListAPI.php",
+                  dataType: "json",
+                      data: { "state": $("#state").val() },
+                   success: function(result,status) {
+                        
+                      //alert(result[0].county);
+                      $("#county").html("<option> Select One </option>");
+                      for (let i=0; i < result.length; i++){
+                          $("#county").append("<option>" + result[i].county + "</option>");
+                      }                  
                     
-                    success: function(result,status) {
-                  
-                        //alert(result[0].county);
-                        for (let i=0; i < result.length; i++){
-                            $("#county").append("<option>" + result[i].county + "</option>");
-                        }
-                    } 
+                    }
                 });//ajax
             }); //state
-            
+                
             $("#username").on("change", function(){
                 
                 $.ajax({
