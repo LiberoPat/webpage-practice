@@ -30,7 +30,8 @@
             Desired Username:<input type="text"name="username" id="username"><br>
                              <span id = "usernameError"></span><br>
             Password: <input type="text"name="password" id="password"><br>
-            Password Again: <input type="password"name="passwordAgain" ><br>
+            Password Again: <input type="password" name="passwordAgain" ><br>
+                            <span id = "passwordAgainError"></span><br> <br />
             
             <input type="submit" value="Sign up!"/>
         </form>
@@ -100,19 +101,34 @@
                 });//ajax
             });//username
             
+            function isFormValid(){
+                isValid = true;
+                
+                if(!usernameAvailable){
+                    isValid = false;
+                }
+                
+                if ($("#username").val().length == 0){
+                    isValid = false;
+                    $("usernameError").html("Username is required");
+                }
+                
+                if ($("#password").val() != $("#passwordAgain").val()){
+                    $("#passwordAgainError").html("Password Mismatch!");
+                    isValid = false;
+                }
+                
+                return isValid;
+                
+            }
+            
             $("#signupForm").on("change", function(e){
                 if(!isFormValid()){
                     e.preventDefault();
                 }
             })
             
-            function isFormValid(){
-                isValid = true;
-                if(!usernameAvailable){
-                    isValid = false;
-                }
-                return isValid;
-            }
+
             
         </script>
     </body>
