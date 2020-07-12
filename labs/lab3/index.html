@@ -2,6 +2,7 @@
 <html>
     <head>
         <title> Sign Up Page </title>
+        <link rel="stylesheet" href="css/styles.css" />
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     </head>
     <body>
@@ -18,12 +19,12 @@
             Longitude: <span id="longitude"></span><br><br>
             
             State:
-            <select id= "state" name="state">
-                <option value=""> Select One</option>
-                <option value ="ny">New York</option>
-                <option value = "tx">Texas</option>
-                <option value "ca">California</option>
-            </select> <br />
+            <select id="state" name="state">
+               <option> Select One </option> 
+               <option value="ca"> California </option>
+               <option value="ny"> New York   </option>
+               <option value="tx"> Texas      </option>
+            </select><br>
             
             Select a County: <select id="county"></select><br>
             
@@ -36,6 +37,28 @@
             <input type="submit" value="Sign up!"/>
         </form>
         
+        <footer class="main-footer">
+            <div class="container main-footer-container">
+                <h5 class="band-name">Sign up AJAX</h5>
+                <ul class="nav footer-nav">
+                    <li>
+                        <a href="https://www.youtube.com" target="_blank">
+                            <img src="Images/youtube.png">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.spotify.com" target="_blank">
+                            <img src="Images/Spotify Logo.png">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.facebook.com" target="_blank">
+                            <img src="Images/Facebook Logo.png">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </footer>
         
         <script>
         
