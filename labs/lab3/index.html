@@ -102,30 +102,29 @@
                 });//ajax
             }); //state
                 
-            $("#username").on("change", function(){
+            $("#username").change(function() {
                 
+                //alert($("#username").val());
                 $.ajax({
                     method: "GET",
-                    url: "https://cst336.herokuapp.com/projects/api/usernamesAPI.php",
-                    dataType: "json",
-                    data: { "username":$("#username").val() },
-                    
-                    success: function(result,status) {
-                  
-                        //alert(result[0].county);
-                        if(result.available){
-                            $("#usernameError").html("Username is available!");
-                            $("#usernameError").css("color", "green");
-                            var usernameAvailable = true;
-                        }
-                        else {
-                            $("#usernameError").html("Username is unavailable!");
-                            $("#usernameError").css("color", "red");
-                            var usernameAvailable = false;
-                        }
-                    } 
+                       url: "https://cst336.herokuapp.com/projects/api/usernamesAPI.php",
+                  dataType: "json",
+                      data: { "username":$("#username").val() },
+                   success: function(result,status) {
+                       
+                                if(result.available){
+                                    $("#usernameError").html("Username is available!");
+                                    $("#usernameError").css("color", "green");
+                                    usernameAvailable = true;
+                                }
+                                else {
+                                    $("#usernameError").html("Username is unavailable!");
+                                    $("#usernameError").css("color", "red");
+                                    usernameAvailable = false;
+                                }               
+                            }
                 });//ajax
-            });//username
+            }); //username
             
             function isFormValid(){
                 isValid = true;
