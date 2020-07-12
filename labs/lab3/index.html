@@ -143,7 +143,9 @@
             
             
             function isFormValid(){
-                isValid = true;
+                let isValid = true;
+                $("#passwordAgainError").html("");
+                $("#passwordError").html("");
                 
                 if(!usernameAvailable){
                     isValid = false;
