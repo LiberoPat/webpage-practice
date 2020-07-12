@@ -8,7 +8,7 @@
                 crossorigin="anonymous">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     </head>
-    <body>
+    <body class="container-sm">
         <h1>Sign Up</h1>
         <form id = "signupForm" method = "post" action = "welcome.html">
             First Name: <input type = "text" name = "fName"><br>
@@ -87,7 +87,7 @@
                         }
                     } 
                 });//ajax
-            })//zip
+            });//zip
             
             $("#state").on("change", function() {
                 
@@ -135,7 +135,7 @@
             }); //username
             
             
-            $("#signupForm").on("change", function(e){
+            $("#signupForm").on("submit", function(e){
                 if(!isFormValid()){
                     e.preventDefault();
                 }
