@@ -33,7 +33,7 @@
             
             Desired Username:<input type="text"name="username" id="username"><br>
                              <span id = "usernameError"></span><br>
-            Password: <input type="passwordError"></span><br>
+            Password: <input type="passwordError" class = "text-danger"></span><br>
             Password Again: <input type="password" name="passwordAgain" ><br>
                             <span id = "passwordAgainError"></span><br> <br />
             
@@ -143,7 +143,9 @@
             
             function isFormValid(){
                 isValid = true;
-                
+                $("#passwordAgainError").html("");
+                $("#passwordError").html("");
+
                 if(!usernameAvailable){
                     isValid = false;
                 }
@@ -154,9 +156,8 @@
                     isValid = false;
                 }
                 
-                if ($("#password").val().length < 5){
-                    $("#passwordError").html("Password is less than 6 characters!");
-                    $("#passwordError").css("color", "red");
+               if ($("#password").val().length < 6) {
+                    $("#passwordError").html("&nbsp;Password must have at least 6 characters!");
                     isValid = false;
                 }
                 
