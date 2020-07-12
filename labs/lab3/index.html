@@ -2,39 +2,43 @@
 <html>
     <head>
         <title> Sign Up Page </title>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script id = "signupForm" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     </head>
     <body>
         <h1>Sign Up</h1>
-        First Name: <input type = "text" name = "fName"><br>
-        Last Name: <input type = "text" name = "lName"><br>
-        Gender: <input type = "radio" name = "gender" value = "f">Female
-                <input type = "radio" name = "gender" value = "m">Male<br><br>
-        
-        Zip Code: <input type = "text" name = "zip" id = "zip"><br>
-        City: <span id = "city"></span> <br>
-        Latitude: <span id="latitude"></span><br> 
-        Longitude: <span id="longitude"></span><br><br>
-        
-        State:
-        <select id= "state" name="state">
-            <option value=""> Select One</option>
-            <option value ="ny">New York</option>
-            <option value = "tx">Texas</option>
-            <option value "ca">California</option>
-        </select> <br />
-        
-        Select a County: <select id="county"></select><br><br>
-        
-        Desired Username:<input type="text"name="username" id="username"><br>
-        Password: <input type="text"name="password" id="password"><br>
-        Password Again: <input type="password"name="passwordAgain" ><br>
-        
-        <input type="submit" value="Sign up!"/>
-        
+        <form method = "post" action = "welcome.html">
+            First Name: <input type = "text" name = "fName"><br>
+            Last Name: <input type = "text" name = "lName"><br>
+            Gender: <input type = "radio" name = "gender" value = "f">Female
+                    <input type = "radio" name = "gender" value = "m">Male<br><br>
+            
+            Zip Code: <input type = "text" name = "zip" id = "zip"><br>
+            City: <span id = "city"></span> <br>
+            Latitude: <span id="latitude"></span><br> 
+            Longitude: <span id="longitude"></span><br><br>
+            
+            State:
+            <select id= "state" name="state">
+                <option value=""> Select One</option>
+                <option value ="ny">New York</option>
+                <option value = "tx">Texas</option>
+                <option value "ca">California</option>
+            </select> <br />
+            
+            Select a County: <select id="county"></select><br><br>
+            
+            Desired Username:<input type="text"name="username" id="username"><br>
+                             <span id = "usernameError"></span><br>
+            Password: <input type="text"name="password" id="password"><br>
+            Password Again: <input type="password"name="passwordAgain" ><br>
+            
+            <input type="submit" value="Sign up!"/>
+        </form>
         
         
         <script>
+        
+            var usernameAvailable = false;
             //Display city after zipcode
             $("#zip").on("change", function(){
                 $.ajax({
@@ -51,7 +55,7 @@
                     $("#longitude").html(result.longitude);
                     } 
                 });//ajax
-            });//zip
+            })//zip
             
             $("#state").on("change", function(){
             
@@ -69,7 +73,47 @@
                         }
                     } 
                 });//ajax
-            }) //state
+            }); //state
+            
+            $("#username").on("change", function(){
+                
+                $.ajax({
+                    method: "GET",
+                    url: "https://cst336.herokuapp.com/projects/api/cityInfoAPI.php",
+                    dataType: "json",
+                    data: { "username":$("#username").val() },
+                    
+                    success: function(result,status) {
+                  
+                        //alert(result[0].county);
+                        if(result.available){
+                            $("#usernameError").html("Username is available!");
+                            $("#usernameError").css("color", "green");
+                            var usernameAvailable = true;
+                        }
+                        else {
+                            $("#usernameError").html("Username is unavailable!");
+                            $("#usernameError").css("color", "red");
+                            var usernameAvailable = false;
+                        }
+                    } 
+                });//ajax
+            });//username
+            
+            $("#signupForm").on("change", function(e){
+                if(!isFormValid()){
+                    e.preventDefault();
+                }
+            })
+            
+            function isFormValid(){
+                isValid = true;
+                if(!usernameAvailable){
+                    isValid = false;
+                }
+                return isValid;
+            }
+            
         </script>
     </body>
 </html>
