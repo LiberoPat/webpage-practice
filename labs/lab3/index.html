@@ -34,8 +34,8 @@
             Desired Username:<input type="text"name="username" id="username"><br>
                              <span id = "usernameError"></span><br>
             Password: <input type="password" id="password" name = "password">
-                            <span id = "passwordAgain" class="text-danger"></span><br>
-            Password Again: <input type="password" name="passwordAgain" ><br>
+                            <span id = "passwordError" class="text-danger"></span><br>
+            Password Again: <input type="password" id="passwordAgain" ><br>
                             <span id = "passwordAgainError"></span><br> <br />
             
             <input type="submit" value="Sign up!"/>
@@ -144,6 +144,7 @@
             
             function isFormValid(){
                 let isValid = true;
+                //default error messages to blank
                 $("#passwordAgainError").html("");
                 $("#passwordError").html("");
                 
