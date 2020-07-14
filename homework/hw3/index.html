@@ -1,0 +1,159 @@
+<! DOCTYPE html>
+<html>
+    <head>
+        <title> Covid USA State Data</title>
+        <link rel="stylesheet" href="css/styles.css" />
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" 
+                rel="stylesheet" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+                crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    </head>
+    <body class="container-sm">
+        <h1>Covid 2020 Data</h1>
+            
+            State:
+            <select id="state" name="state">
+               <option> Select One </option> 
+               <option value="ca"> California </option>
+               <option value="ny"> New York   </option>
+               <option value="tx"> Texas      </option>
+            </select><br>
+            
+            Select a County: <select id="county"></select><br>
+            
+        
+        <footer class="main-footer">
+            <div class="container main-footer-container">
+                <h5 class="band-name">Sign up AJAX</h5>
+                <ul class="nav footer-nav">
+                    <li>
+                        <a href="https://www.youtube.com" target="_blank">
+                            <img src="Images/youtube.png">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.spotify.com" target="_blank">
+                            <img src="Images/Spotify Logo.png">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.facebook.com" target="_blank">
+                            <img src="Images/Facebook Logo.png">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </footer>
+        
+       <script>
+        
+            var settings = {
+            	"async": true,
+            	"crossDomain": true,
+            	"url": "https://covid-19-usa-data-by-zt.p.rapidapi.com/GetUSAllHistoricalDataForState?statecode=ca",
+            	"method": "GET",
+            	"headers": {
+            		"x-rapidapi-host": "covid-19-usa-data-by-zt.p.rapidapi.com",
+            		"x-rapidapi-key": "4278201a09msh1c031c77983de33p1118e1jsnaee74dc709db"
+            	}
+            }
+
+            $.ajax(settings).done(function (response) {
+            	console.log(response);
+            });
+            
+            
+            $("#state").on("change", function() {
+                
+                //alert($("#state").val());
+                
+                $.ajax({
+                    method: "GET",
+                       url: "https://cst336.herokuapp.com/projects/api/countyListAPI.php",
+                  dataType: "json",
+                      data: { "state": $("#state").val() },
+                   success: function(result,status) {
+                        
+                      //alert(result[0].county);
+                      $("#county").html("<option> Select One </option>");
+                      for (let i=0; i < result.length; i++){
+                          $("#county").append("<option>" + result[i].county + "</option>");
+                      }                  
+                    
+                    }
+                });//ajax
+            }); //state
+                
+            $("#username").change(function() {
+                
+                //alert($("#username").val());
+                $.ajax({
+                    method: "GET",
+                       url: "https://cst336.herokuapp.com/projects/api/usernamesAPI.php",
+                  dataType: "json",
+                      data: { "username":$("#username").val() },
+                   success: function(result,status) {
+                       
+                                if(result.available){
+                                    $("#usernameError").html("Username is available!");
+                                    $("#usernameError").css("color", "green");
+                                    usernameAvailable = true;
+                                }
+                                else {
+                                    $("#usernameError").html("Username is unavailable!");
+                                    $("#usernameError").css("color", "red");
+                                    usernameAvailable = false;
+                                }               
+                            }
+                });//ajax
+            }); //username
+            
+            
+            $("#signupForm").on("submit", function(e){
+                if(!isFormValid()){
+                    e.preventDefault();
+                }
+            });
+            
+            
+            function isFormValid(){
+                let isValid = true;
+                //default error messages to
+                $("#passwordAgainError").html("");
+                $("#passwordError").html("");
+                
+                if(!usernameAvailable){
+                    isValid = false;
+                }
+                
+                if ($("#username").val().length == ""){
+                    $("#usernameError").html("Username is required");
+                    $("#usernameError").css("color", "red");
+                    isValid = false;
+                }
+                
+                if ($("#password").val().length < 6) {
+                    $("#passwordError").html("Password must have minimum 6 characters!");
+                  isValid = false;
+                }
+                
+
+                if ($("#password").val() != $("#passwordAgain").val()){
+                    $("#passwordAgainError").html("Password Mismatch!");
+                    $("#passwordAgainError").css("color", "red");
+                    isValid = false;
+                }
+                
+
+
+                return isValid;
+                
+            }
+            
+
+
+            
+        </script>
+    </body>
+</html>
+
