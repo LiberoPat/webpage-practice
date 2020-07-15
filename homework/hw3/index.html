@@ -71,21 +71,6 @@
         
        <script>
         
-            var settings = {
-            	"async": true,
-            	"crossDomain": true,
-            	"url": "https://covid-19-usa-data-by-zt.p.rapidapi.com/GetUSAllHistoricalDataForState?statecode=ca",
-            	"method": "GET",
-            	"headers": {
-            		"x-rapidapi-host": "covid-19-usa-data-by-zt.p.rapidapi.com",
-            		"x-rapidapi-key": "4278201a09msh1c031c77983de33p1118e1jsnaee74dc709db"
-            	}
-            }
-
-            $.ajax(settings).done(function (response) {
-            	console.log(response);
-            });
-            
             
             $("#state").on("change", function() {
                 
