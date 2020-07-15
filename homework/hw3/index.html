@@ -140,6 +140,9 @@
                     
                     success: function(result,status) {
                         //alert(result.items[0].name);
+                        for (i = 0; i < 10; i++) { 
+                            $("#pic" + i).append("<img src="+ data.items[i].thumbnailImage +">");
+                        }
                         if (result != false){ 
                             $("#item0").html(result.items[0].name);
                             $("#item1").html(result.items[1].name);
@@ -171,24 +174,7 @@
                 });//ajax
             });//search
             
-            
-            //images
 
-            
-//for loop
-                
-                $.ajax({ //ajax for pictures
-                
-                    type: 'GET',
-                    url: "http://api.walmartlabs.com/v1/search?apiKey=7eksjp57nqzw9hnb9hsudh93"+ search,
-                    dataType: 'image/jpeg',
-                    async: true,
-                    success: function (data) {
-                        for (i = 0; i < 10; i++) { 
-                            $("#pic" + i).append("<img src="+ data.items[i].thumbnailImage +">");
-                        }
-                    }
-                });
                 
 
             
