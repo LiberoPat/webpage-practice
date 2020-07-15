@@ -8,7 +8,7 @@ function displayResults(){
         foreach ($items as $item) {
             $itemName = $item['name'];
             $itemPrice = $item['salePrice'];
-            $itemImage = $item['thumbnaiImage'];
+            $itemImage = $item['thumbnailImage'];
             $itemId = $item['itemId'];
             
             //display item as table row
@@ -21,7 +21,7 @@ function displayResults(){
             echo "<form method='post'>";
             echo "<input type='hidden' name='itemName' value='$itemName'>";
             echo "<input type='hidden' name='itemPrice' value='$itemPrice'>";
-            echo "<input type='hidden' name='itemImg' value='$itemImg'>";
+            echo "<input type='hidden' name='itemImg' value='$itemImage'>";
             echo "<input type='hidden' name='itemId' value='$itemId'>";
             
             if($_POST['itemId'] == $itemId) {
