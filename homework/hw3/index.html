@@ -59,7 +59,7 @@
             $("#pName").on("change", function(){
                 $.ajax({
                     method: "GET",
-                    url: "http://api.walmartlabs.com/v1/search?apiKey=7eksjp57nqzw9hnb9hsudh93&query="+ search,
+                    url: "http://api.walmartlabs.com/v1/search?apiKey=7eksjp57nqzw9hnb9hsudh93"+ search,
                     dataType: "json",
                     data: { "query":$("#pName").val() },
                     
