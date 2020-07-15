@@ -92,6 +92,9 @@
                 //alert($("#state").val());
                 
                 $.ajax({
+	                async: true,
+	                crossDomain: true,
+	                
                     method: "GET",
                     url: "https://covid-19-usa-data-by-zt.p.rapidapi.com/GetUSAllHistoricalDataForState?statecode=CA", //+ $('#state').val(),
                     dataType: "json",
