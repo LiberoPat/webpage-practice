@@ -141,7 +141,7 @@
                     success: function(result,status) {
                         //alert(result.items[0].name);
                         for (i = 0; i < 10; i++) { 
-                            $("#pic" + i).append("<img src="+ result.items[i].thumbnailImage +">");
+                            $("#pic" + i).html("<img src="+ result.items[i].thumbnailImage +">");
                         }
                         if (result != false){ 
                             $("#item0").html(result.items[0].name);
