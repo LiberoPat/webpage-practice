@@ -46,7 +46,7 @@
                 <th><h4>Price (in USD)</h4></th>
                 </tr>
                 <tr>
-                <td><img id="pic0"></span></td>
+                <td><span id="pic0"></span></td>
                 <td><h4><span id="item0"></span></h4></td>
                 <td><h4><span id = "price0"> </span></h4></td>
                 </tr>
@@ -175,7 +175,7 @@
             //images
 
             
-            for (i = 0; i < 10; i++) { //for loop
+//for loop
                 
                 $.ajax({ //ajax for pictures
                 
@@ -184,11 +184,12 @@
                     dataType: 'image/jpeg',
                     async: true,
                     success: function (data) {
-                        
-                        $("#pic" + i).attr("src", result.items[i].thumbnailImage);
+                        for (i = 0; i < 10; i++) { 
+                            $("#pic" + i).append("<img src="+ result.items[i].thumbnailImage +">");
+                        }
                     }
                 });
-            }
+                
 
             
         </script>
