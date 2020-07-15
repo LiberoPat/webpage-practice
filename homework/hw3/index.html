@@ -46,52 +46,52 @@
                 <th><h4>Price (in USD)</h4></th>
                 </tr>
                 <tr>
-                <td><img ><span id="pic0"></span></td>
+                <td><span id="pic0"></span></td>
                 <td><h4><span id="item0"></span></h4></td>
                 <td><h4><span id = "price0"> </span></h4></td>
                 </tr>
                 <tr>
-                <td><img ><span id="pic1"></span></td>
+                <td><span id="pic1"></span></td>
                 <td><h4><span id="item1"></span></h4></td>
                 <td><h4><span id = "price1"> </span></h4></td>
                 </tr> 
                 <tr>
-                <td><img ><span id="pic2"></span></td>
+                <td><span id="pic2"></span></td>
                 <td><h4><span id="item2"></span></h4></td>
                 <td><h4><span id = "price2"> </span></h4></td>
                 </tr>
                 <tr>
-                <td><img ><span id="pic3"></span></td>
+                <td><span id="pic3"></span></td>
                 <td><h4><span id="item3"></span></h4></td>
                 <td><h4><span id = "price3"> </span></h4></td>
                 </tr>
                 <tr>
-                <td><img ><span id="pic4"></span></td>
+                <td><span id="pic4"></span></td>
                <td><h4><span id="item4"></span></h4></td>
                 <td><h4><span id = "price4"> </span></h4></td> 
                 </tr>
                 <tr>
-                <td><img ><span id="pic5"></span></td>
+                <td><span id="pic5"></span></td>
                 <td><h4><span id="item5"></span></h4></td>
                 <td><h4><span id = "price5"> </span></h4></td>  
                 </tr>
                 <tr>
-                <td><img ><span id="pic6"></span></td>
+                <td><span id="pic6"></span></td>
                 <td><h4><span id="item6"></span></h4></td>
                 <td><h4><span id = "price6"> </span></h4></td>
                 </tr>
                 <tr>
-                <td><img ><span id="pic7"></span></td>
+                <td><span id="pic7"></span></td>
                 <td><h4><span id="item7"></span></h4></td>
                 <td><h4><span id = "price7"> </span></h4></td> 
                 </tr>
                 <tr>
-                <td><img ><span id="pic8"></span></td>
+                <td><span id="pic8"></span></td>
                 <td><h4><span id="item8"></span></h4></td>
                 <td><h4><span id = "price8"> </span></h4></td>
                 </tr>
                 <tr>
-                <td><img ><span id="pic9"></span></td>
+                <td><span id="pic9"></span></td>
                 <td><h4><span id="item9"></span></h4></td>
                 <td><h4><span id = "price9"></span> </span></h4></td>
                 </tr>
@@ -181,16 +181,11 @@
                 
                     type: 'GET',
                     url: "http://api.walmartlabs.com/v1/search?apiKey=7eksjp57nqzw9hnb9hsudh93"+ search,
-                    dataType: 'image/jpg',
+                    dataType: 'image/jpeg',
                     async: true,
                     success: function (data) {
                         
-                        var imageArray = [result.items[0].thumbnailImage,result.items[1].thumbnailImage,result.items[2].thumbnailImage,
-                        result.items[3].thumbnailImage,result.items[4].thumbnailImage,
-                        result.items[5].thumbnailImage,result.items[6].thumbnailImage,
-                        result.items[7].thumbnailImage,result.items[8].thumbnailImage,result.items[9].thumbnailImage];
-                        
-                        $("#pic" + i).attr("src", imageArray[i]);
+                        $("#pic" + i).attr("src", result.items[i].thumbnailImage);
                     }
                 });
             }
