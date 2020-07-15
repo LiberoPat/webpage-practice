@@ -34,12 +34,12 @@
                         <label for="pName">Product Name</label>
                         <input type="text" class="form-control" name="query" id="pName" placeholder="Name">
                     </div>
-                    <input type="submit" value="Submit" class="btn btn-default">
+                    <!--<input type="submit" value="Submit" class="btn btn-default">-->
                     <br /><br />
                 </form>
-                <table class='table'>
+                <table class='table text-center'>
                 <tr>
-                <td><img>Image</td>
+                <td><h4>Image</h4></td>
                 <td><h4>Product</h4></td>
                 <td><h4>Price</h4></td>
                 </tr>
@@ -52,44 +52,20 @@
         </div> 
         
        <script>
-        
             
-            $("#state").on("change", function() {
-                
-                //alert($("#state").val());
-                
-                $.ajax({
-	                async: true,
-	                crossDomain: true,
-	                
-                    method: "GET",
-                    url: "https://covid-19-usa-data-by-zt.p.rapidapi.com/GetUSTotalCounts", //+ $('#state').val(),
-                    dataType: "json",
-                    headers: {
-                		"x-rapidapi-host": "covid-19-usa-data-by-zt.p.rapidapi.com",
-                		"x-rapidapi-key": "4278201a09msh1c031c77983de33p1118e1jsnaee74dc709db"
-            	    },
-                     // data: { "state": $("#state").val() },
-                   //success: function(result,status) {
-                      success: function(data) {  
-                      //alert(result[0].county);
-                        console.log('success', data);
-                      }                  
-                    
-                });//ajax
-            }); //state
-                
-            /* 
+            var search = $("#pName").val();
+            
             //Display city after zipcode
-            $("#zip").on("change", function(){
+            $("#pName").on("change", function(){
                 $.ajax({
                     method: "GET",
-                    url: "https://cst336.herokuapp.com/projects/api/cityInfoAPI.php",
+                    url: "http://api.walmartlabs.com/v1/search?apiKey=7eksjp57nqzw9hnb9hsudh93&query="+ search,
                     dataType: "json",
-                    data: { "zip":$("#zip").val() },
+                    data: { "query":$("#pName").val() },
                     
                     success: function(result,status) {
-                         //alert(result);
+                        alert(result);
+                         /*
                         if (result != false){ 
                             $("#city").html(result.city);
                             $("#latitude").html(result.latitude);     
@@ -98,10 +74,11 @@
                         else {
                             $("#zipError").html("ZIP you entered is invalid");
                         }
+                        */
                     } 
                 });//ajax
             });//zip
-            */
+            
             
 
             
