@@ -42,6 +42,46 @@
                 <td><h4>Image</h4></td>
                 <td><h4>Product</h4></td>
                 <td><h4>Price</h4></td>
+                
+                <td><img ><span id="pic0"></span></td>
+                <td><h4><span id="item0"></span></h4></td>
+                <td><h4><span> id = "price0" </span></h4></td>
+                
+                <td><img ><span id="pic1"></span></td>
+                <td><h4><span id="item1"></span></h4></td>
+                <td><h4><span> id = "price1" </span></h4></td>
+                                
+                <td><img ><span id="pic2"></span></td>
+                <td><h4><span id="item2"></span></h4></td>
+                <td><h4><span> id = "price2" </span></h4></td>
+                                
+                <td><img ><span id="pic3"></span></td>
+                <td><h4><span id="item3"></span></h4></td>
+                <td><h4><span> id = "price3" </span></h4></td>
+                                
+                <td><img ><span id="pic4"></span></td>
+               <td><h4><span id="item4"></span></h4></td>
+                <td><h4><span> id = "price4" </span></h4></td> 
+                
+                <td><img ><span id="pic5"></span></td>
+                <td><h4><span id="item5"></span></h4></td>
+                <td><h4><span> id = "price5" </span></h4></td>  
+                
+                <td><img ><span id="pic6"></span></td>
+                <td><h4><span id="item6"></span></h4></td>
+                <td><h4><span> id = "price6" </span></h4></td>
+                                
+                <td><img ><span id="pic7"></span></td>
+                <td><h4><span id="item7"></span></h4></td>
+                <td><h4><span> id = "price7" </span></h4></td> 
+                
+                <td><img ><span id="pic8"></span></td>
+                <td><h4><span id="item8"></span></h4></td>
+                <td><h4><span> id = "price8" </span></h4></td>
+                                
+                <td><img ><span id="pic9"></span></td>
+                <td><h4><span id="item9"></span></h4></td>
+                <td><h4><span> id = "price9" </span></h4></td>
                 </tr>
                 </table>
                 <span id="itemError" class="text-danger"></span><br>
@@ -65,16 +105,35 @@
                     data: { "query":$("#pName").val() },
                     
                     success: function(result,status) {
-                        alert(result.items[0].name);
-                       /* if (result != false){ 
-                            $("#city").html(result.city);
-                            $("#latitude").html(result.latitude);     
-                            $("#longitude").html(result.longitude);
+                        //alert(result.items[0].name);
+                        if (result != false){ 
+                            $("#item0").html(result.items[0].name);
+                            $("#item1").html(result.items[1].name);
+                            $("#item2").html(result.items[2].name);
+                            $("#item3").html(result.items[3].name);
+                            $("#item4").html(result.items[4].name);
+                            $("#item5").html(result.items[5].name);
+                            $("#item6").html(result.items[6].name);
+                            $("#item7").html(result.items[7].name);
+                            $("#item8").html(result.items[8].name);
+                            $("#item9").html(result.items[9].name);
+                            
+                            
+                            $("#price0").html(result.items[0].price);
+                            $("#price1").html(result.items[1].price);
+                            $("#price2").html(result.items[2].price);
+                            $("#price3").html(result.items[3].price);
+                            $("#price4").html(result.items[4].price);
+                            $("#price5").html(result.items[5].price);
+                            $("#price6").html(result.items[6].price);
+                            $("#price7").html(result.items[7].price);
+                            $("#price8").html(result.items[8].price);
+                            $("#price9").html(result.items[9].price);
                         }
                         else {
                             $("#itemError").html("The item you searched for is invalid");
                             
-                        }*/
+                        }
                         
                     } 
                 });//ajax
