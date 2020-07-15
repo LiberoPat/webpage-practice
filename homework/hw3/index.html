@@ -151,16 +151,16 @@
                             $("#item9").html(result.items[9].name);
                             
                             
-                            $("#price0").html(result.items[0].price);
-                            $("#price1").html(result.items[1].price);
-                            $("#price2").html(result.items[2].price);
-                            $("#price3").html(result.items[3].price);
-                            $("#price4").html(result.items[4].price);
-                            $("#price5").html(result.items[5].price);
-                            $("#price6").html(result.items[6].price);
-                            $("#price7").html(result.items[7].price);
-                            $("#price8").html(result.items[8].price);
-                            $("#price9").html(result.items[9].price);
+                            $("#price0").html("$"+result.items[0].salePrice);
+                            $("#price1").html(result.items[1].salePrice);
+                            $("#price2").html(result.items[2].salePrice);
+                            $("#price3").html(result.items[3].salePrice);
+                            $("#price4").html(result.items[4].salePrice);
+                            $("#price5").html(result.items[5].salePrice);
+                            $("#price6").html(result.items[6].salePrice);
+                            $("#price7").html(result.items[7].salePrice);
+                            $("#price8").html(result.items[8].salePrice);
+                            $("#price9").html(result.items[9].salePrice);
                         }
                         else {
                             $("#itemError").html("The item you searched for is invalid");
