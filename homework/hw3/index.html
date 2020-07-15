@@ -185,7 +185,7 @@
                     async: true,
                     success: function (data) {
                         for (i = 0; i < 10; i++) { 
-                            $("#pic" + i).append("<img src="+ result.items[i].thumbnailImage +">");
+                            $("#pic" + i).append("<img src="+ data.items[i].thumbnailImage +">");
                         }
                     }
                 });
