@@ -34,7 +34,7 @@
                 <form enctype="text/plain">
                     <div class="form-group">
                         <label for="pName">Product Name</label>
-                        <input type="text" class="form-control" name="query" id="pName" placeholder="Name">
+                        <input type="text" class="form-control" name="query" id="pName" placeholder="Search">
                     </div>
                     <!--<input type="submit" value="Submit" class="btn btn-default">-->
                     <br /><br />
@@ -43,7 +43,7 @@
                 <tr>
                 <th><h4>Image</h4></th>
                 <th><h4>Product</h4></th>
-                <th><h4>Price</h4></th>
+                <th><h4>Price (in USD)</h4></th>
                 </tr>
                 <tr>
                 <td><img ><span id="pic0"></span></td>
@@ -166,14 +166,31 @@
                         }
                         else {
                             $("#itemError").html("The item you searched for is invalid");
-                            
                         }
-                        
                     } 
                 });//ajax
-            });//zip
+            });//search
             
             
+            //images
+            var imageArray = [result.items[0].thumbnailImage,result.items[1].thumbnailImage,result.items[2].thumbnailImage,
+                                    result.items[3].thumbnailImage,result.items[4].thumbnailImage,
+                                    result.items[5].thumbnailImage,result.items[6].thumbnailImage,
+                                    result.items[7].thumbnailImage,result.items[8].thumbnailImage,result.items[9].thumbnailImage];
+            
+            for (i = 0; i < 10; i++) { //for loop
+                
+                $.ajax({ //ajax for pictures
+                
+                    type: 'GET',
+                    url: "http://api.walmartlabs.com/v1/search?apiKey=7eksjp57nqzw9hnb9hsudh93"+ search,
+                    dataType: 'image/jpg',
+                    async: true,
+                    success: function (data) {
+                        $("#pic" + i).attr("src", imageArray[i]);
+                    }
+                });
+            }
 
             
         </script>
