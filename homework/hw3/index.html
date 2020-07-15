@@ -173,10 +173,7 @@
             
             
             //images
-            var imageArray = [result.items[0].thumbnailImage,result.items[1].thumbnailImage,result.items[2].thumbnailImage,
-                                    result.items[3].thumbnailImage,result.items[4].thumbnailImage,
-                                    result.items[5].thumbnailImage,result.items[6].thumbnailImage,
-                                    result.items[7].thumbnailImage,result.items[8].thumbnailImage,result.items[9].thumbnailImage];
+
             
             for (i = 0; i < 10; i++) { //for loop
                 
@@ -187,6 +184,12 @@
                     dataType: 'image/jpg',
                     async: true,
                     success: function (data) {
+                        
+                        var imageArray = [result.items[0].thumbnailImage,result.items[1].thumbnailImage,result.items[2].thumbnailImage,
+                        result.items[3].thumbnailImage,result.items[4].thumbnailImage,
+                        result.items[5].thumbnailImage,result.items[6].thumbnailImage,
+                        result.items[7].thumbnailImage,result.items[8].thumbnailImage,result.items[9].thumbnailImage];
+                        
                         $("#pic" + i).attr("src", imageArray[i]);
                     }
                 });
