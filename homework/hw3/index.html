@@ -44,6 +44,7 @@
                 <td><h4>Price</h4></td>
                 </tr>
                 </table>
+                <span id="itemError" class="text-danger"></span><br>
             
                 <!-- Display search results -->
                 <!--<?php displayResults(); ?> -->
@@ -64,17 +65,17 @@
                     data: { "query":$("#pName").val() },
                     
                     success: function(result,status) {
-                        alert(result);
-                         /*
-                        if (result != false){ 
+                        alert(data.length);
+                       /* if (result != false){ 
                             $("#city").html(result.city);
                             $("#latitude").html(result.latitude);     
                             $("#longitude").html(result.longitude);
                         }
                         else {
-                            $("#zipError").html("ZIP you entered is invalid");
+                            $("#itemError").html("The item you searched for is invalid");
+                            */
                         }
-                        */
+                        
                     } 
                 });//ajax
             });//zip
