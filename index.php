@@ -1,7 +1,7 @@
 <html>
     
     <main>
-        <h1>Cool Images</h1>
+        <h1>Patrick Trias - Website Portfolio</h1>
     </main>
     <body>
         <?php
