@@ -29,7 +29,7 @@
             
             
         displayQ4Choices();
-        
+        displayQ9Choices();
         function displayQ4Choices(){
             let q4ChoicesArray = ["Maine", "Rhode Island", "Maryland", "Delaware"];
             q4ChoicesArray= _.shuffle(q4ChoicesArray);
@@ -41,6 +41,17 @@
             }
         }
         
+        
+        function displayQ9Choices(){
+            let q9ChoicesArray = ["yes", "no"];
+            q9ChoicesArray= _.shuffle(q9ChoicesArray);
+            
+            for (let i =0; i < q9ChoicesArray.length; i++) {
+                $("#q9Choices").append(`<div class="form-check form-check-inline"><input type="radio" name="q9" id="${q9ChoicesArray[i]}"
+                    value="${q9ChoicesArray[i]}" class="form-check-input"> <label for="${q9ChoicesArray[i]}"
+                    class="form-check-label"> ${q9ChoicesArray[i]}</label></div>`);
+            }
+        }
             //functions
             function isFormValid(){
                 let isValid = true;
@@ -56,7 +67,7 @@
                 $(`#q${index}Feedback`).html("Correct!");
                 $(`#q${index}Feedback`).attr("class", "bg-success text-white");
                 $(`#markImg${index}`).html("<img src='img/checkmark.png'>");
-                score += 20;
+                score += 10;
             }   
             
             function wrongAnswer(index){
@@ -72,10 +83,15 @@
                 }
                 
                 score = 0;
+                
                 let q1Response = $("#q1").val().toLowerCase();
                 let q2Response = $("#q2").val();
                 let q4Response = $("input[name=q4]:checked").val();
-            
+                let q6Response = $("#q6").val();
+                let q8Response = $("#q8").val().toLowerCase();
+                let q9Response = $("input[name=q9]:checked").val();
+                let q10Response = $("#q10").val();
+                
                 //Q1
                 if (q1Response == "sacramento"){
                     rightAnswer(1);
@@ -93,8 +109,8 @@
                 }
                 
                 //Q3
-                if ($("#Jefferson").is(":checked") && $("#Roosevelt").is(":checked") && !$("#Jefferson").is(":checked") 
-                    && !$("#Jefferson").is(":checked") ){
+                if ($("#Jefferson").is(":checked") && $("#Roosevelt").is(":checked") && !$("#Franklin").is(":checked") 
+                    && !$("#Jackson").is(":checked") ){
                         rightAnswer(3);
                     }
                 else{
@@ -102,7 +118,7 @@
                 }
                 
                 //Q4
-                if(q4Response =="Rhose Island"){
+                if(q4Response =="Rhode Island"){
                     rightAnswer(4);
                 }
                 else{
@@ -114,6 +130,47 @@
                     rightAnswer(5);
                 } else {
                     wrongAnswer(5);
+                }
+                
+                //Q6
+                if (q6Response == "bi"){
+                    rightAnswer(6);
+                }
+                else {
+                    wrongAnswer(6);
+                }
+                
+                //Q7
+                if ($("#ka").is(":checked")  && !$("#pe").is(":checked")
+                    && !$("#kw").is(":checked") ){
+                        rightAnswer(7);
+                    }
+                else{
+                    wrongAnswer(7);
+                }
+                
+                //Q8
+                if (q8Response == "white"){
+                    rightAnswer(8);
+                }
+                else {
+                    wrongAnswer(8);
+                }
+                
+                //q9
+                if(q9Response =="no"){
+                    rightAnswer(9);
+                }
+                else{
+                    wrongAnswer(9);
+                }
+                
+                //Q10
+                if (q10Response == "1776"){
+                    rightAnswer(10);
+                }
+                else {
+                    wrongAnswer(10);
                 }
                 
                 //UpdatedScore display
@@ -177,6 +234,44 @@
     <br/><br/>
     <div id="q5Feedback"></div>
     <br><br>
+    
+    
+    <h3><span id = "markImg6"></span>Who won the 2020 Presidential Election?</h3> 
+    <select id="q6"> 
+        <option value=""> Select One </option>
+        <option value="bi">Biden </option>
+        <option value="mo"> Trump </option>
+        <option value="co"> Kanye </option>
+    </select>
+    <br><br>
+    <div id= "q6Feedback"></div>
+    <br><br>
+    
+    <br>
+    <h3><span id = "markImg7"></span>Who won the 2020 Vice Presidential election? </h3> 
+    <input type = "checkbox" id = "ka"> <label for "Harris">Kamala Harris</label>
+    <input type = "checkbox" id = "pe"> <label for "Pence">Pence </label>
+    <input type = "checkbox" id = "kw"> <label for "Kanye">Kanye</label>
+
+    <br><br>
+    <div id = "q7Feedback"></div>
+    <br>
+    <h3><span id = "markImg1"></span>What color are the stars in the American flag?</h3> 
+    <input type = "text" id="q8">
+    <br><br>
+    <div id= "q8Feedback"></div>
+    <br>
+    
+    
+    <h3><span id = "markImg9"></span>Was there rampant voting fraud in the 2020 election?</h3>            
+    <div id = "q9Choices"></div>
+    <div id = "q9Feedback"></div>
+    <br><br>
+    <h3><span id = "markImg10"></span>What year was the US Declaration of Independence adopted?</h3> 
+    <input type = "text" id="q10">
+    <br><br>
+    <div id= "q10Feedback"></div>
+    <br>
     
     <h3 id="validationFdbk" class="bg-danger text-white"></h3>
     <button type = "button" class="btn btn-outline-success">Submit quiz</button>
