@@ -1,7 +1,7 @@
 <! DOCTYPE html>
 <html>
         <head>
-            <title>Products Page</title>
+            <title>City Weather</title>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1">
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -13,7 +13,7 @@
         </head>
         <section class="top-banner">
   <div class="container">
-    <h1 class="heading">Simple Weather App</h1>
+    <h1 class="heading">Today's City Weather </h1>
     <form>
       <input type="text" placeholder="Search for a city" autofocus>
       <button type="submit">SUBMIT</button>
@@ -74,7 +74,7 @@ form.addEventListener("submit", e => {
     if (filteredArray.length > 0) {
       msg.textContent = `You already know the weather for ${
         filteredArray[0].querySelector(".city-name span").textContent
-      } ...otherwise be more specific by providing the country code as well 😉`;
+      } or else provide the country code as well`;
       form.reset();
       input.focus();
       return;

@@ -45,11 +45,6 @@ body {
 }
 
 
-/* SECTION #1
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
-.top-banner {
-  color: var(--text_light);
-}
 
 .heading {
   font-weight: bold;
