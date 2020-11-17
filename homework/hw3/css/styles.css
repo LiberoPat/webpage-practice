@@ -1,158 +1,236 @@
-@import url('https://fonts.googleapis.com/css?family=Raleway:300,400,700');
-@import url("https://fonts.googleapis.com/css?family=Metal+Mania");
 
-@font-face {
-
-    font-weight: normal;
-    font-style: normal;
+a {
+  color: inherit;
+  text-decoration: none;
 }
 
-* {
-    font-family: Raleway;
-    color: #777;
+button {
+  cursor: pointer;
+}
+ 
+input {
+  -webkit-appearance: none;
+}
+ 
+button,
+input {
+  border: none;
+  background: none;
+  outline: none;
+  color: inherit;
 }
 
-html, body {
-    margin: 0;
-    padding: 0;
-    min-height: 100%;
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
 }
 
-.nav ul {
-    margin: 0;
+ul {
+  list-style: none;
 }
 
-.nav li {
-    display: inline;
-}
-
-.nav a {
-    display: inline-block;
-    padding: .5em;
-    color: white;
-    text-decoration: none;
-}
-
-.main-nav {
-    text-align: center;
-    font-size: 1.1em;
-    font-weight: lighter;
-    border-bottom: 1px solid rgba(255, 255, 255, .3)
-}
-
-.main-nav li {
-    padding: 0 5%;
-}
-
-.nav a:hover {
-    background-color: rgba(255, 255, 255, .3)
-}
-
-.main-header {
-    background-color: rgba(0, 0, 0, .6);
-    background-image: url("Images/Header Background.jpg");
-    background-blend-mode: multiply;
-    background-size: cover;
-    padding-bottom: 30px;
-}
-
-.band-name {
-    text-align: center;
-    margin: 0;
-    font-size: 4em;
-    font-family: "Booter - Zero Zero";
-    font-weight: normal;
-    color: white;
-}
-
-
-.content-section {
-    margin: 1em;
+body {
+  font: 1rem/1.3 "Roboto", sans-serif;
+  background: #FFFFE0;
+  color: #00CED1;
+  padding: 50px;
 }
 
 .container {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 0 1.5em;
-}
-.section-header {
-    font-family: "Metal Mania";
-    font-weight: normal;
-    color: #333;
-    text-align: center;
-    font-size: 2.5em;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
 }
 
 
-.main-footer {
-    background-color: #56CCF2;
-    color: grey;
-    padding: .25em 0;
+/* SECTION #1
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.top-banner {
+  color: var(--text_light);
 }
 
-.main-footer-container {
-    display: flex;
-    align-items: center;
+.heading {
+  font-weight: bold;
+  font-size: 4rem;
+  letter-spacing: 0.02em;
+  padding: 0 0 30px 0;
 }
 
-.main-footer-container ul {
-    flex-grow: 1;
-    text-align: end;
+.top-banner form {
+  position: relative;
+  display: flex;
+  align-items: center;
 }
 
-.footer-nav li {
-    padding: 0 .5em;
+.top-banner form input {
+  font-size: 2rem;
+  height: 40px;
+  padding: 5px 5px 10px;
+  border-bottom: 1px solid;
 }
 
-.footer-nav img {
-    width: 30px;
-    height: 30px;
+.top-banner form input::placeholder {
+  color: currentColor; 
 }
 
-.btn {
-    text-align: center;
-    vertical-align: middle;
-    padding: .67em .67em;
-    cursor: pointer;
+.top-banner form button {
+  font-size: 1rem;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  padding: 15px 20px;
+  margin-left: 15px;
+  border-radius: 5px;
+  background: #F4A460;
+  transition: background 0.3s ease-in-out;
 }
 
-.btn-header {
-    margin: .5em 15% 2em 15%;
-    color: white;
-    border: 2px solid #2D9CDB;
-    background-color: rgba(255, 255, 255, .1);
-    border-radius: 0;
-    font-size: 1.5em;
-    font-weight: lighter;
-    padding-left: 2em;
-    padding-right: 2em;
+.top-banner form button:hover {
+  background: #F4A460;
 }
 
-.btn-header:hover {
-    background-color: rgba(255, 255, 255, .3);
+.top-banner form .msg {
+  position: absolute;
+  bottom: -40px;
+  left: 0;
+  max-width: 450px;
+  min-height: 40px;
 }
 
-.btn-play {
-    display: block;
-    margin: 0 auto;
-    color: #2D9CDB;
-    font-size: 4em;
-    border-radius: 50%;
-    width: 100px;
-    height: 100px;
-    padding: 0;
-    text-align: center;
+
+/* SECTION #2
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.ajax-section {
+  margin: 70px 0 20px;
 }
 
-.btn-primary {
-    color: white;
-    background-color: #56CCF2;
-    border: none;
-    border-radius: .3em;
-    font-weight: bold;
+.ajax-section .cities {
+  display: grid;
+  grid-gap: 32px 20px;
+  grid-template-columns: repeat(4, 1fr);
 }
 
-.btn-primary:hover {
-    background-color: #2D9CDB;
+.ajax-section .city {
+  position: relative;
+  padding: 40px 10%;
+  border-radius: 20px;
+  background: #E0FFFF;
+  color: #DDA0DD;
 }
 
+.ajax-section .city::after {
+  content: '';
+  width: 90%;
+  height: 50px;
+  position: absolute;
+  bottom: -12px;
+  left: 5%;
+  z-index: -1;
+  opacity: 0.3;
+  border-radius: 20px;
+  background: #AFEEEE;
+}
+
+.ajax-section figcaption {
+  margin-top: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.ajax-section .city-temp {
+  font-size: 5rem;
+  font-weight: bold;
+  margin-top: 10px;
+  color: #AFEEEE;
+}
+
+.ajax-section .city sup {
+  font-size: 0.5em;
+}
+
+.ajax-section .city-name sup {
+  padding: 0.2em 0.6em;
+  border-radius: 30px;
+  color: #AFEEEE;
+  background: #F4A460;
+}
+
+.ajax-section .city-icon {
+  margin-top: 10px;
+  width: 100px;
+  height: 100px;
+}
+
+
+/* FOOTER
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.page-footer {
+  text-align: right;
+  font-size: 1rem;
+  color: #AFEEEE;
+  margin-top: 40px;
+}
+
+.page-footer span {
+  color: #00CED1;
+}
+
+
+/* MQ
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+@media screen and (max-width: 1000px) {
+  body {
+    padding: 30px;
+  }
+  
+  .ajax-section .cities {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .heading,
+  .ajax-section .city-temp {
+    font-size: 3rem;
+  }
+  
+  .ajax-section {
+    margin-top: 20px;
+  }
+  
+  .top-banner form {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .top-banner form input,
+  .top-banner form button {
+    width: 100%;
+  }
+
+  .top-banner form button {
+    margin: 20px 0 0 0;
+  }
+  
+  .top-banner form .msg {
+    position: static;
+    max-width: none;
+    min-height: 0;
+    margin-top: 10px;
+  }
+
+  .ajax-section .cities {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 500px) {
+  body {
+    padding: 15px;
+  }
+  
+  .ajax-section .cities {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
